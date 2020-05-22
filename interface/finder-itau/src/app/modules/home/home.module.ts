@@ -12,7 +12,8 @@ import { HeaderComponent } from './components/header/header.component';
     CommonModule
   ],
   providers: [
-    HomeService
+    HomeService,
+    Navigator
   ]
 })
 export class HomeModule { }
