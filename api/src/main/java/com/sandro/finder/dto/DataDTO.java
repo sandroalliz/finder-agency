@@ -8,6 +8,14 @@ public class DataDTO {
     private String browser;
     private String agency;
 
+    public DataDTO(String latitude, String longitude, String device, String browser, String agency) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.device = device;
+        this.browser = browser;
+        this.agency = agency;
+    }
+
     public String getLatitude() {
         return latitude;
     }
