@@ -30,7 +30,7 @@ public class AgencyRepository {
     private String key;
 
     public List<Agency> getAgencies(String latitude, String longitude) {
-        String urlGoogle = (new StringBuilder().append(baseURL).append(key)).toString();
+        String urlGoogle = (new StringBuilder().append(baseURL).append(key).append("&point=").append(latitude).append("/").append(longitude)).toString();
 
         HttpURLConnection conn = null;
         StringBuilder jsonResults = new StringBuilder();
