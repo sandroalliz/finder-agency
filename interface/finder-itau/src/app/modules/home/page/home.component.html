@@ -1,26 +1,25 @@
 <app-header></app-header>
 
-<div class="d-flex justify-content-between m-4">
+<div class="info">
     <span>Latitude: {{latitude}}</span>
     <span>Longitude: {{longitude}}</span>
     <span>Device: {{device}}</span>
     <span>Browser: {{browser}}</span>
 </div>
 
-<div class="page-header m-4">
+<div class="page-header m-4 justify-content-center">
     <h1>Agências próximas a você </h1>
 </div>
 
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-lg-2" *ngFor="let agency of agencies">
         <div class="card" style="width: 18rem;">
-            <!--     -->
             <div class="card-body">
                 <h5 class="card-title">Agência Itau</h5>
                 <p class="card-text">Endereço: {{agency.address}}</p>
                 <a (click)="showDetail(agency)" *ngIf="!agency.showDetail">Mostrar mais</a>
                 <div *ngIf="agency.showDetail">
-                    <p class="card-text">Horário: Aberto as {{agency.oppeningHours}}: 00</p>
+                    <p class="card-text">Horário de Abertura: {{agency.oppeningHours}}</p>
                     <p class="card-text">Numéro: {{agency.number}}</p>
                     <a (click)="showDetail(agency)">Mostrar menos</a>
                 </div>

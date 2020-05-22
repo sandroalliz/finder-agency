@@ -1,3 +1,10 @@
+.info{
+    display: flex;
+    justify-content: space-between;
+    margin: 2%;
+}
+
+
 a{
     font-weight: 400;
     font-size: 20px;
@@ -8,4 +15,19 @@ a:hover{
     font-weight: 400;
     font-size: 20px;
     color: blue; 
+}
+
+@media (max-width:641px){
+    .info{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 2%;
+    }
+
+    .row{
+        .col-lg-2{
+            margin: 8%;
+        }
+    }
 }
