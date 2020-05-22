@@ -16,7 +16,7 @@ export class HomeService {
     return this.http.get(`${environment.url}/agency/${lat}/${long}`, {});
   }
 
-  saveAgency(data: DataUser) {
+  saveAgency(data: DataUser): Observable<any> {
     return this.http.post(`${environment.url}/agency`, data);
   }
 }
