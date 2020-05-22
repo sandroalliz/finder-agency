@@ -6,7 +6,7 @@ public class DataDTO {
     private String longitude;
     private String device;
     private String browser;
-    private long agency;
+    private String agency;
 
     public String getLatitude() {
         return latitude;
@@ -40,11 +40,11 @@ public class DataDTO {
         this.browser = browser;
     }
 
-    public long getAgency() {
+    public String getAgency() {
         return agency;
     }
 
-    public void setAgency(long agency) {
+    public void setAgency(String agency) {
         this.agency = agency;
     }
 }

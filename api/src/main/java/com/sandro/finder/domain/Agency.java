@@ -2,21 +2,21 @@ package com.sandro.finder.domain;
 
 public class Agency {
 
-    private Number number;
+    private String number;
     private String address;
     private String oppeningHours;
 
-    public Agency(Number number, String address, String oppeningHours) {
+    public Agency(String number, String address, String oppeningHours) {
         this.number = number;
         this.address = address;
         this.oppeningHours = oppeningHours;
     }
 
-    public Number getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Number number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
