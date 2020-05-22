@@ -32,6 +32,20 @@ public class AgencyRepository {
     public List<Agency> getAgencies(String latitude, String longitude) {
         String urlGoogle = (new StringBuilder().append(baseURL).append(key).append("&point=").append(latitude).append("/").append(longitude)).toString();
 
+        String result = connectWithGoogleMaps(urlGoogle);
+
+        //TO DO PARSE FROM RESULT
+
+        //MOCK AGENCIES
+        List<Agency> agencies = new ArrayList<>();
+        agencies.add(new Agency("(11) 2628-3135", "Av. Washington Luís, 1171 - Santo Amaro, São Paulo - SP, 04662-002", "10:00"));
+        agencies.add(new Agency("(11) 2628-3135", "Alameda Santo Amaro, Av. Adolfo Pinheiro, 478, São Paulo - SP, 04734-000", "Temporariamente Fechada"));
+        agencies.add(new Agency("(11) 2628-3135", "Av. de Pinedo, 294 - Santo Amaro, São Paulo - SP, 04764-000", "10:30"));
+        agencies.add(new Agency("(11) 2628-3135", "Av. de Pinedo, 505 - Socorro, São Paulo - SP, 04764-001", "09:00"));
+        return agencies;
+    }
+
+    public String connectWithGoogleMaps(String urlGoogle){
         HttpURLConnection conn = null;
         StringBuilder jsonResults = new StringBuilder();
         try {
@@ -53,17 +67,6 @@ public class AgencyRepository {
                 conn.disconnect();
             }
         }
-
-
-        //TO DO CONNECTION WITH GOOGLE API MAPS
-
-
-        //MOCK AGENCIES
-        List<Agency> agencies = new ArrayList<>();
-        agencies.add(new Agency("(11) 2628-3135", "Av. Washington Luís, 1171 - Santo Amaro, São Paulo - SP, 04662-002", "10:00"));
-        agencies.add(new Agency("(11) 2628-3135", "Alameda Santo Amaro, Av. Adolfo Pinheiro, 478, São Paulo - SP, 04734-000", "Temporariamente Fechada"));
-        agencies.add(new Agency("(11) 2628-3135", "Av. de Pinedo, 294 - Santo Amaro, São Paulo - SP, 04764-000", "10:30"));
-        agencies.add(new Agency("(11) 2628-3135", "Av. de Pinedo, 505 - Socorro, São Paulo - SP, 04764-001", "09:00"));
-        return agencies;
+        return jsonResults.toString();
     }
 }
