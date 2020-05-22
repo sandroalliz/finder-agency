@@ -1,6 +1,15 @@
 <app-header></app-header>
 
-<div class="page-header">
+<div class="row">
+    <div class="col-12">
+        <span>Latitude: {{latitude}}</span>
+        <span>Longitude: {{longitude}}</span>
+        <span>Device: {{device}}</span>
+        <span>Browser: {{browser}}</span>
+    </div>
+</div>
+
+<div class="page-header m-4">
     <h1>Agências próximas a você </h1>
 </div>
 
@@ -11,6 +20,7 @@
             <div class="card-body">
                 <h5 class="card-title">Agência Itau</h5>
                 <p class="card-text">Endereço: {{agency.address}}</p>
+                <a>Mostrar mais</a>
                 <p class="card-text">Horário: Aberto as {{agency.openingHours}}</p>
                 <p class="card-text">Numéro: {{agency.number}}</p>
             </div>

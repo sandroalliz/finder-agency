@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../service/home.service';
+import { Agency } from 'src/app/shared/model/agency';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-home',
@@ -8,22 +10,28 @@ import { HomeService } from '../service/home.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: HomeService) { }
+  constructor(private service: HomeService,
+    private deviceService: DeviceDetectorService) { }
 
   latitude;
   longitude;
+  device;
+  browser;
 
   agencies = [];
 
   ngOnInit() {
-    this.getLocation();
+    this.getInfos();
+  }
+  getDevice() {
+    throw new Error("Method not implemented.");
   }
 
   getAgencies(lat, longi) {
     this.service.getAgencies(lat, longi)
       .subscribe(
         result => {
-          this.agencies = result;
+          this.agencies = result.map(res => new Agency(res));
         },
         error => {
           setTimeout(() => {
@@ -33,7 +41,7 @@ export class HomeComponent implements OnInit {
       );
   }
 
-  getLocation(): void {
+  getInfos(): void {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.longitude;
@@ -43,6 +51,11 @@ export class HomeComponent implements OnInit {
     } else {
       console.log("No support for geolocation")
     }
+
+    console.info(this.deviceService.getDeviceInfo());
+    this.device = this.deviceService.getDeviceInfo().device;
+    this.browser = this.deviceService.getDeviceInfo().browser;
+
   }
 
 
