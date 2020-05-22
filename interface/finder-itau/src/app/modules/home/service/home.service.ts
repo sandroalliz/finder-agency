@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { DataUser } from 'src/app/shared/model/dataUser';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class HomeService {
     return this.http.get(`${environment.url}/agency/${lat}/${long}`, {});
   }
 
-  // saveAgency() {
-  //   return this.http.get(`${environment.url}/agency/${lat}/${long}`, {});
-  // }
+  saveAgency(data: DataUser) {
+    return this.http.post(`${environment.url}/agency`, data);
+  }
 }
