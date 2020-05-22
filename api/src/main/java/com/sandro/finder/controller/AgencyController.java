@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -25,7 +26,12 @@ public class AgencyController {
     public ResponseEntity<List<Agency>> get(@PathVariable String latitude,
                                             @PathVariable String longitude){
 
-        List<Agency> agencies = agencyService.get(latitude, longitude);
+        List<Agency> agencies = null;
+        try {
+            agencies = agencyService.get(latitude, longitude);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return ResponseEntity.ok(agencies);
     }
 
