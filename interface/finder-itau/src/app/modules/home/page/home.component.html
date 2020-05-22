@@ -1,11 +1,13 @@
 <app-header></app-header>
 
-,<button (click)="getAgencies()"></button>
+<div class="page-header">
+    <h1>Agências próximas a você </h1>
+</div>
 
 <div class="row">
     <div class="col-lg-2" *ngFor="let agency of agencies">
         <div class="card" style="width: 18rem;">
-            <img class="card-img-left" src="" alt="Card image cap">
+            <!--     -->
             <div class="card-body">
                 <h5 class="card-title">Agência Itau</h5>
                 <p class="card-text">Endereço: {{agency.address}}</p>

@@ -21,6 +21,7 @@ public class AgencyController {
     @Autowired
     DataUserRepository dataUserRepository;
 
+    @CrossOrigin
     @RequestMapping(value = "/{latitude}/{longitude}", method = RequestMethod.GET)
     public ResponseEntity<List<Agency>> get(@PathVariable String latitude,
                                             @PathVariable String longitude){
